@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ForSale</string>
+
+    <!-- Tela inicial -->
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_cadastro">CADASTRAR</string>
+    <string name="btn_buscar">BUSCAR</string>
+
+
 </resources>
