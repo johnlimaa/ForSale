@@ -16,7 +16,7 @@ public class ConectDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase banco) {
         banco.execSQL("create table usuario(id integer primary key autoincrement, " +
-                        "nome varchar(80) not null, mail varchar(60) not null, senha varchar(20) not null, cpf bigint not null)");
+                        "nome varchar(80) not null, mail varchar(60) not null, senha varchar(20) not null, cpf bigint unique not null)");
     }
 
     @Override

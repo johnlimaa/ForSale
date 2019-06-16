@@ -2,9 +2,17 @@
     <string name="app_name">ForSale</string>
 
     <!-- Tela inicial -->
-    <string name="btn_login">LOGIN</string>
-    <string name="btn_cadastro">CADASTRAR</string>
-    <string name="btn_buscar">BUSCAR</string>
+    <string name="btn_login">login</string>
+    <string name="btn_cadastro">cadastre-se</string>
+    <string name="btn_buscar">buscar</string>
 
+    <!-- Tela de Cadastro -->
+    <string name="btn_cadatrar">cadastrar</string>
+    <string name="btn_back">voltar</string>
+    <string name="cad_new">Novo Cadastro</string>
+    <string name="cad_nome">Nome</string>
+    <string name="cad_mail">E-mail</string>
+    <string name="cad_senha">Senha</string>
+    <string name="cad_cpf">CPF</string>
 
 </resources>
