@@ -1,14 +1,16 @@
-package com.example.forsale;
+package com.example.forsale.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SchedulingActivity extends AppCompatActivity {
+import com.example.forsale.R;
+
+public class PreviewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scheduling);
+        setContentView(R.layout.activity_preview);
     }
 }

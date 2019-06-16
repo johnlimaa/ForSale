@@ -1,14 +1,16 @@
-package com.example.forsale;
+package com.example.forsale.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CadastroActivity extends AppCompatActivity {
+import com.example.forsale.R;
+
+public class PesquisaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        setContentView(R.layout.activity_pesquisa);
     }
 }

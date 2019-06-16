@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroActivity">
+    tools:context=".activities.CadastroActivity">
 
     <TextView
         android:id="@+id/textView4"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -120,12 +120,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_cadastro"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

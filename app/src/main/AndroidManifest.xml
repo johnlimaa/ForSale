@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SchedulingActivity"></activity>
-        <activity android:name=".PreviewActivity" />
-        <activity android:name=".PesquisaActivity" />
-        <activity android:name=".CadastroActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.SchedulingActivity" />
+        <activity android:name=".activities.PreviewActivity" />
+        <activity android:name=".activities.PesquisaActivity" />
+        <activity android:name=".activities.CadastroActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
