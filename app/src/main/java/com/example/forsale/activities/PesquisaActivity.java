@@ -23,7 +23,7 @@ public class PesquisaActivity extends AppCompatActivity {
     private ListView list;
 
     private ProdutoDAO dao;
-    private List<Produto> produtos;
+    private ArrayList<Produto> produtos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,10 @@ public class PesquisaActivity extends AppCompatActivity {
             produtos = dao.obterTodos(busca_intent.getStringExtra("busca"));
             ArrayAdapter<Produto> adaptador = new ArrayAdapter<Produto>(this, android.R.layout.simple_list_item_1, produtos);
             list.setAdapter(adaptador);
+            System.out.println(produtos.get(0).getNome());
+            System.out.println(produtos.get(0).getValor());
+
+
         }
     }
 }

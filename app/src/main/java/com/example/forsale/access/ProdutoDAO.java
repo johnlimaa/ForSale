@@ -20,8 +20,8 @@ public class ProdutoDAO {
         banco = conexao.getWritableDatabase();
     }
 
-    public List<Produto> obterTodos(String where) {
-        List<Produto> produtos = new ArrayList<>();
+    public ArrayList<Produto> obterTodos(String where) {
+        ArrayList<Produto> produtos = new ArrayList<Produto>();
         Cursor cursor = banco.query("produto", new String[]{"nome", "tipo", "descricao", "valor"}, "tipo=?" , new String[]{where} , null, null, null);
         while(cursor.moveToNext()) {
             Produto p = new Produto();
