@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText area_pesquisa;
 
-    private ProdutoDAO dao;
-    private List<Produto> produtos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         btn_buscar = findViewById(R.id.btn_buscar);
 
         area_pesquisa = findViewById(R.id.area_pesquisa);
-
-        dao = new ProdutoDAO(this);
 
         btn_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void call_busca(String where) {
         Intent intent = new Intent(this, PesquisaActivity.class);
-        Bundle bundle = new Bundle();
-        produtos = dao.obterTodos(where);
-        //intent.putStringArrayListExtra("produtos", (ArrayList) produtos);
-        bundle.putSerializable("produtos", (Serializable) produtos);
-        intent.putExtras(bundle);
+        intent.putExtra("busca", where);
         startActivity(intent);
     }
 

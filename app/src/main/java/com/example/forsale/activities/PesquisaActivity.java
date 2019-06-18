@@ -21,6 +21,8 @@ import java.util.List;
 public class PesquisaActivity extends AppCompatActivity {
 
     private ListView list;
+
+    private ProdutoDAO dao;
     private List<Produto> produtos;
 
     @Override
@@ -28,22 +30,14 @@ public class PesquisaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesquisa);
 
+        dao = new ProdutoDAO(this);
         list = findViewById(R.id.listaDeBusca);
-        Bundle busca_intent = getIntent().getExtras();
+        Intent busca_intent = getIntent();
 
         if(busca_intent != null) {
-            produtos = (List) busca_intent.getSerializable("produtos");
+            produtos = dao.obterTodos(busca_intent.getStringExtra("busca"));
             ArrayAdapter<Produto> adaptador = new ArrayAdapter<Produto>(this, android.R.layout.simple_list_item_1, produtos);
             list.setAdapter(adaptador);
         }
-
-        list.setOnClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(position == 0) {
-                    Toast.makeText(this, "Item Lenovo Clicked", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 }

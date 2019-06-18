@@ -2,7 +2,7 @@ package com.example.forsale.access;
 
 import java.io.Serializable;
 
-public class Produto implements Serializable {
+public class Produto {
 
     private int id;
     private String nome;
