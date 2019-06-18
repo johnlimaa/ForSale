@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center">
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/prod_logo"
         android:src="@mipmap/ic_launcher_round"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/nome"
+            android:id="@+id/prod_nome"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="Title"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:id="@+id/desc"
+            android:id="@+id/prod_desc"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="Description"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:id="@+id/val"
+            android:id="@+id/prod_val"
             android:gravity="center"
             android:text="Values"
             android:textSize="20sp"

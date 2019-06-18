@@ -6,6 +6,6 @@
 
     <!-- Cores personalizadas -->
     <color name="transparent">#1A000000</color>
-    <color name="btn_color">#FFFFF7</color>
-    <color name="bg_color">#36A8A5</color>
+    <color name="btn_color">#7c7673</color>
+    <color name="bg_color">#7c7673</color>
 </resources>
