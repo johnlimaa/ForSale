@@ -21,15 +21,17 @@ public class ProdutoDAO {
 
     public List<Produto> obterTodos(String where) {
         List<Produto> produtos = new ArrayList<>();
-        Cursor cursor = banco.query("produtos", new String[]{"nome", "descricao", "valor"}, "tipo = " + where, null, null, null, null);
+        Cursor cursor = banco.query("produto", new String[]{"nome", "tipo", "descricao", "valor"}, "tipo = '" + where + "'", null, null, null, null);
         while(cursor.moveToNext()) {
             Produto p = new Produto();
             p.setNome(cursor.getString(0));
-            p.setDescricao(cursor.getString(1));
-            p.setValor(cursor.getFloat(2));
+            p.setTipo(cursor.getString(1));
+            p.setDescricao(cursor.getString(2));
+            p.setValor(cursor.getFloat(3));
             produtos.add(p);
-        }
 
+        }
+        System.out.println(produtos.toString());
         return produtos;
     }
 }

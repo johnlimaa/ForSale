@@ -1,6 +1,8 @@
 package com.example.forsale.access;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
 
     private int id;
     private String nome;
@@ -46,5 +48,10 @@ public class Produto {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }
