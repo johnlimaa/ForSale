@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ public class PersonalActivity extends AppCompatActivity {
     private TextView mail;
     private TextView cpf;
 
+    private Button btn_pedido;
+
     private UsuarioDAO dao;
     private ArrayList<Usuario> user;
 
@@ -34,6 +38,8 @@ public class PersonalActivity extends AppCompatActivity {
         mail = findViewById(R.id.textViewPersonalMail);
         cpf = findViewById(R.id.textViewPersonalCpf);
 
+        btn_pedido = findViewById(R.id.buttonPedido);
+
         Intent ints = getIntent();
 
         try {
@@ -46,6 +52,13 @@ public class PersonalActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(PersonalActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
+        btn_pedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(PersonalActivity.this, "Em atualiazações futuras.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
