@@ -2,6 +2,7 @@ package com.example.forsale.access;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.forsale.helper.ConectDB;
@@ -24,5 +25,14 @@ public class UsuarioDAO {
         values.put("cpf", user.getCpf());
 
         return banco.insert("usuario", null, values);
+    }
+
+    public String possoLogar(String luser, String lsenha) {
+        Cursor cursor = banco.rawQuery("select * from usuario where mail=? and senha=?", new String[]{luser, lsenha});
+
+        if (cursor.getCount() > 0) {
+            return "OK";
+        }
+        return "ERRO";
     }
 }

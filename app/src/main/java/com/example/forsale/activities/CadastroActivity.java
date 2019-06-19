@@ -35,7 +35,7 @@ public class CadastroActivity extends AppCompatActivity {
         dao_user = new UsuarioDAO(this);
         nome = findViewById(R.id.editTextNome);
         mail = findViewById(R.id.editTextMail);
-        senha = findViewById(R.id.editTextSenha);
+        senha = findViewById(R.id.editTextSenhaLogin);
         cpf = findViewById(R.id.editTextCpf);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
