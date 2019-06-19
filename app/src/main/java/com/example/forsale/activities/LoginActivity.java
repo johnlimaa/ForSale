@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         dao = new UsuarioDAO(this);
+
         user = findViewById(R.id.editTextUserLogin);
         senha = findViewById(R.id.editTextSenhaLogin);
         logar = findViewById(R.id.buttonLogar);
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (temp == "OK") {
                         Intent intent = new Intent(LoginActivity.this, PersonalActivity.class);
+                        intent.putExtra("mail", user.getText().toString());
+                        intent.putExtra("senha", senha.getText().toString());
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Senha ou e-mail incorretos.", Toast.LENGTH_SHORT).show();

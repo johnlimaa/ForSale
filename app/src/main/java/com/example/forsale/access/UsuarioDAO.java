@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.forsale.helper.ConectDB;
 
+import java.util.ArrayList;
+
 public class UsuarioDAO {
 
     private ConectDB conexao;
@@ -35,4 +37,18 @@ public class UsuarioDAO {
         }
         return "ERRO";
     }
+
+    public ArrayList<Usuario> obetAlguns(String mail, String senha) {
+        ArrayList<Usuario> users = new ArrayList<Usuario>();
+        Cursor cursor = banco.rawQuery("select * from usuario where mail=? and senha=?", new String[]{mail, senha});
+        while(cursor.moveToNext()) {
+            Usuario u = new Usuario();
+            u.setNome(cursor.getString(1));
+            u.setMail(cursor.getString(2));
+            u.setCpf(cursor.getLong(4));
+            users.add(u);
+        }
+        return users;
+    }
+
 }
