@@ -47,13 +47,17 @@ public class CadastroActivity extends AppCompatActivity {
         btn_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Usuario u = new Usuario();
-                u.setNome(nome.getText().toString());
-                u.setMail(mail.getText().toString());
-                u.setSenha(senha.getText().toString());
-                u.setCpf(Long.valueOf(cpf.getText().toString()));
-                long id = dao_user.insertUser(u);
-                Toast.makeText(CadastroActivity.this, "User " + id + " inserido", Toast.LENGTH_SHORT).show();
+                try {
+                    Usuario u = new Usuario();
+                    u.setNome(nome.getText().toString());
+                    u.setMail(mail.getText().toString());
+                    u.setSenha(senha.getText().toString());
+                    u.setCpf(Long.valueOf(cpf.getText().toString()));
+                    long id = dao_user.insertUser(u);
+                    Toast.makeText(CadastroActivity.this, "User " + id + " inserido", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(CadastroActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

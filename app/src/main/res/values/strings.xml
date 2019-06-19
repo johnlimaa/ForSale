@@ -15,4 +15,11 @@
     <string name="cad_senha">Senha</string>
     <string name="cad_cpf">CPF</string>
 
+    <!-- Tela de Preview -->
+    <string name="btn_maps">Google Maps</string>
+
+
+    <!-- Tela de Login -->
+    <string name="btn_entrar">Entrar</string>
+
 </resources>

@@ -41,49 +41,79 @@ public class PesquisaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesquisa);
 
-        dao = new ProdutoDAO(this);
-        list = findViewById(R.id.listaDeBusca);
-        btn_back = findViewById(R.id.buttonVoltar);
-        Intent busca_intent = getIntent();
+            dao = new ProdutoDAO(this);
+            list = findViewById(R.id.listaDeBusca);
+            btn_back = findViewById(R.id.buttonVoltar);
+            Intent busca_intent = getIntent();
 
-        if(busca_intent != null) {
-            produtos = dao.obterTodos(busca_intent.getStringExtra("busca"));
+            if(busca_intent != null) {
+                try {
+                    produtos = dao.obterTodos(busca_intent.getStringExtra("busca"));
 
 
-            int img[] = {R.drawable.lenovo, R.drawable.samsung, R.drawable.dell, R.drawable.sony};
-            String title[] = {produtos.get(0).getNome(), produtos.get(1).getNome(), produtos.get(2).getNome(), produtos.get(3).getNome()};
-            String desc[] = {produtos.get(0).getDescricao(), produtos.get(1).getDescricao(), produtos.get(2).getDescricao(), produtos.get(3).getDescricao()};
-            Float val[] = {produtos.get(0).getValor(), produtos.get(1).getValor(), produtos.get(2).getValor(), produtos.get(3).getValor()};
+                    int img[] = {R.drawable.lenovo, R.drawable.samsung, R.drawable.dell, R.drawable.sony};
+                    String title[] = {produtos.get(0).getNome(), produtos.get(1).getNome(), produtos.get(2).getNome(), produtos.get(3).getNome()};
+                    String desc[] = {produtos.get(0).getDescricao(), produtos.get(1).getDescricao(), produtos.get(2).getDescricao(), produtos.get(3).getDescricao()};
+                    Float val[] = {produtos.get(0).getValor(), produtos.get(1).getValor(), produtos.get(2).getValor(), produtos.get(3).getValor()};
 
-            //ArrayAdapter<Produto> adaptador = new ArrayAdapter<Produto>(this, android.R.layout.simple_list_item_1, produtos);
-            MyAdapter adaptador = new MyAdapter(this, title, desc, val, img);
-            list.setAdapter(adaptador);
-        }
-
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                call_back();
-            }
-        });
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-
-                }
-                if (position == 1) {
-
-                }
-                if (position == 2) {
-
-                }
-                if (position == 3) {
-
+                    //ArrayAdapter<Produto> adaptador = new ArrayAdapter<Produto>(this, android.R.layout.simple_list_item_1, produtos);
+                    MyAdapter adaptador = new MyAdapter(this, title, desc, val, img);
+                    list.setAdapter(adaptador);
+                } catch (Exception e) {
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+
+            btn_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    call_back();
+                }
+            });
+
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    try {
+                    TextView nome;
+                    TextView desc;
+                    TextView val;
+                    int img[] = {R.drawable.lenovo, R.drawable.samsung, R.drawable.dell, R.drawable.sony};
+                    if (position == 0) {
+                        nome = view.findViewById(R.id.prod_nome);
+                        desc = view.findViewById(R.id.prod_desc);
+                        val = view.findViewById(R.id.prod_val);
+
+                        call_preview(nome.getText().toString(), desc.getText().toString(), val.getText().toString(), img[0]);
+                    }
+                    if (position == 1) {
+                        nome = view.findViewById(R.id.prod_nome);
+                        desc = view.findViewById(R.id.prod_desc);
+                        val = view.findViewById(R.id.prod_val);
+
+                        call_preview(nome.getText().toString(), desc.getText().toString(), val.getText().toString(), img[1]);
+
+                    }
+                    if (position == 2) {
+                        nome = view.findViewById(R.id.prod_nome);
+                        desc = view.findViewById(R.id.prod_desc);
+                        val = view.findViewById(R.id.prod_val);
+
+                        call_preview(nome.getText().toString(), desc.getText().toString(), val.getText().toString(), img[2]);
+                    }
+                    if (position == 3) {
+                        nome = view.findViewById(R.id.prod_nome);
+                        desc = view.findViewById(R.id.prod_desc);
+                        val = view.findViewById(R.id.prod_val);
+
+                        call_preview(nome.getText().toString(), desc.getText().toString(), val.getText().toString(), img[3]);
+                    }
+                    } catch (Exception e) {
+                        Toast.makeText(PesquisaActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
     }
 
     class MyAdapter extends ArrayAdapter<String> {
@@ -124,6 +154,15 @@ public class PesquisaActivity extends AppCompatActivity {
 
     public void call_back() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void call_preview(String title, String desc, String val, int img) {
+        Intent intent = new Intent(this, PreviewActivity.class);
+        intent.putExtra("title", title);
+        intent.putExtra("desc", desc);
+        intent.putExtra("val", val);
+        intent.putExtra("img", img);
         startActivity(intent);
     }
 }

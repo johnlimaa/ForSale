@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.LoginActivity"></activity>
-        <activity android:name=".activities.SchedulingActivity" />
         <activity android:name=".activities.PreviewActivity" />
         <activity android:name=".activities.PesquisaActivity" />
         <activity android:name=".activities.CadastroActivity" />
